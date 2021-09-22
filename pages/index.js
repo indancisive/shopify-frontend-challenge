@@ -20,6 +20,14 @@ const Home = () => {
     const toggleImagesOpen = () => {
         setImagesIsOpen(!imagesIsOpen);
     };
+
+    const toggleLikedImage = (index) => {
+        setLikedImages((prevState) => ({
+            ...prevState,
+            [index]: !prevState[index],
+        }));
+    };
+
     useEffect(async () => {
         setIsLoading(true);
         try {
@@ -85,7 +93,11 @@ const Home = () => {
                                         src={image.url}
                                     ></Image>
                                     <p>🎨: {image.copyright}</p>
-                                    {true ? <p>liked!</p> : <p>not liked :(</p>}
+                                    <LikeButton
+                                        onClick={() => toggleLikedImage(index)}
+                                    >
+                                        {likedImages[index] ? "Unlike" : "Like"}
+                                    </LikeButton>
                                 </Card>
                             );
                         })}
@@ -98,10 +110,12 @@ const Home = () => {
     );
 };
 
+const LikeButton = styled.button``;
+
 const GoToLikedPage = styled(Link)``;
 
 const Header = styled.div`
-    height: 10vh;
+    height: 200px;
     width: 100%;
     display: flex;
     justify-content: flex-end;
