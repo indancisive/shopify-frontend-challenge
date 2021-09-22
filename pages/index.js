@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
@@ -43,6 +44,11 @@ const Home = () => {
 
     return (
         <div className={styles.container}>
+            <Header>
+                <GoToLikedPage href="/liked">
+                    Go to liked images 👍
+                </GoToLikedPage>
+            </Header>
             <Head>
                 <title>Create Next App</title>
                 <meta
@@ -53,11 +59,13 @@ const Home = () => {
             </Head>
 
             <main className={styles.main}>
-                <h1 className={styles.title}>Welcome to Spacestagram!</h1>
+                <HeaderWrapper>
+                    <h1 className={styles.title}>Welcome to Spacestagram!</h1>
 
-                <p className={styles.description}>
-                    Get started by clicking search below :)
-                </p>
+                    <p className={styles.description}>
+                        Get started by clicking search below :)
+                    </p>
+                </HeaderWrapper>
 
                 <SearchButton className={styles.card}>
                     <h2>Search &rarr;</h2>
@@ -90,8 +98,22 @@ const Home = () => {
     );
 };
 
+const GoToLikedPage = styled(Link)``;
+
+const Header = styled.div`
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    /* align-items: center; */
+`;
+
+const HeaderWrapper = styled.div`
+    height: 50vh;
+`;
+
 const ImagesDiv = styled.div`
-    height: 100%;
+    height: 30vh;
 `;
 
 const Card = styled.div`
