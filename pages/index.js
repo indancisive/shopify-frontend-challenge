@@ -15,7 +15,10 @@ const Home = () => {
     const { images, setImages, likedImages, setLikedImages } = useApp;
 
     const [isLoading, setIsLoading] = useState(false);
-
+    const [imagesIsOpen, setImagesIsOpen] = useState(false);
+    const toggleImagesOpen = () => {
+        setImagesIsOpen(!imagesIsOpen);
+    };
     useEffect(async () => {
         setIsLoading(true);
         try {
@@ -60,7 +63,8 @@ const Home = () => {
                     <h2>Search &rarr;</h2>
                     <p>Discover a world of spacey pics 🚀</p>
                 </SearchButton>
-                {!isLoading && images ? (
+                {isLoading && <div>Loading!!!</div>}
+                {imagesIsOpen ? (
                     <ImagesDiv>
                         {images.map((image, index) => {
                             return (
@@ -79,7 +83,7 @@ const Home = () => {
                         })}
                     </ImagesDiv>
                 ) : (
-                    <div>Loading!!!</div>
+                    <button onClick={toggleImagesOpen}>Expand Images!</button>
                 )}
             </main>
         </div>
