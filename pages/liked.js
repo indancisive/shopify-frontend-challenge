@@ -13,7 +13,7 @@ const Liked = () => {
         <div>
             <Link href="/">Go Back</Link>
             {Object.keys(likedImages).map((url) => {
-                return <div>{url}</div>;
+                return <div key={"LikedCard." + url}>{url}</div>;
             })}
         </div>
     );

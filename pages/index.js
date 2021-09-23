@@ -70,7 +70,7 @@ const Home = () => {
                 <ImagesDiv>
                     {images.map((image, index) => {
                         return (
-                            <Card key={index}>
+                            <Card key={"Card." + image.ur}>
                                 <h2>{image.title} &rarr;</h2>
                                 <p>{image.explanation}</p>
                                 <Image
