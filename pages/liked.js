@@ -6,7 +6,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { AppContext } from "../contexts/context";
 
-const liked = () => {
+const Liked = () => {
     const useApp = useContext(AppContext);
     const { likedImages } = useApp;
     return (
@@ -19,4 +19,4 @@ const liked = () => {
     );
 };
 
-export default liked;
+export default Liked;
