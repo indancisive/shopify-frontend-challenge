@@ -5,7 +5,7 @@ export const AppContext = createContext({});
 
 export const AppProvider = ({ children }) => {
     const [images, setImages] = useState();
-    const [likedImages, setLikedImages] = useState();
+    const [likedImages, setLikedImages] = useState({});
 
     const store = {
         setImages,

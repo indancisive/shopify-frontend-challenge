@@ -12,9 +12,9 @@ const liked = () => {
     return (
         <div>
             <Link href="/">Go Back</Link>
-            {likedImages.map((image) => (
-                <div>{image ? "true" : "false"}</div>
-            ))}
+            {Object.keys(likedImages).map((url) => {
+                return <div>{url}</div>;
+            })}
         </div>
     );
 };
